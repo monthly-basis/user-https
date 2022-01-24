@@ -1,0 +1,106 @@
+<?php
+$flashService = $this->flash();
+$this->layout()->setVariables([
+    'htmlHeadAppend' => $this->getReCaptchaScriptTag(),
+    'htmlHeadTitle'  => 'Sign Up',
+    'useContainer'   => false,
+]);
+$monthOptions = [
+    '' => 'Month',
+    '01' => 'January',
+    '02' => 'February',
+    '03' => 'March',
+    '04' => 'April',
+    '05' => 'May',
+    '06' => 'June',
+    '07' => 'July ',
+    '08' => 'August',
+    '09' => 'September',
+    '10' => 'October',
+    '11' => 'November',
+    '12' => 'December',
+];
+$dayOptions = [
+    '' => 'Day',
+];
+for ($dayIteration = 1; $dayIteration <= 31; $dayIteration++) {
+    $dayIterationPadded = sprintf("%02d", $dayIteration);
+    $dayOptions[$dayIterationPadded] = $dayIteration;
+}
+$yearOptions = [
+    '' => 'Year',
+];
+for ($yearIteration = date('Y'); $yearIteration >= date('Y') - 120; $yearIteration--) {
+    $yearOptions[$yearIteration] = $yearIteration;
+}
+?>
+<div class="columns two-columns">
+    <div class="column">
+        <div class="panel">
+            <h1>Sign Up</h1>
+
+            <form action="/sign-up" method="post">
+                <p>
+                    Email<br>
+                    <input type="text" name="email" value="<?= $this->escape($flashService->get('email')); ?>">
+                </p>
+
+                <p>
+                    Username<br>
+                    <input type="text" name="username" value="<?= $this->escape($flashService->get('username')); ?>">
+                </p>
+
+                <p>
+                    Password<br>
+                    <input type="password" name="password">
+                </p>
+
+                <p>
+                    Confirm Password<br>
+                    <input type="password" name="confirm-password">
+                </p>
+
+                <p>
+                    Birthday<br>
+                    <select name="birthday-month">
+                        <?php foreach ($monthOptions as $key => $value): ?>
+                            <?php $selected = ($key == $flashService->get('birthday-month')) ? ' selected' : ''; ?>
+                            <option value="<?= $key ?>"<?= $selected ?>><?= $value ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <select name="birthday-day">
+                        <?php foreach ($dayOptions as $key => $value): ?>
+                            <?php $selected = ($key == $flashService->get('birthday-day')) ? ' selected' : ''; ?>
+                            <option value="<?= $key ?>"<?= $selected ?>><?= $value ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <select name="birthday-year">
+                        <?php foreach ($yearOptions as $key => $value): ?>
+                            <?php $selected = ($key == $flashService->get('birthday-year')) ? ' selected' : ''; ?>
+                            <option value="<?= $key ?>"<?= $selected ?>><?= $value ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </p>
+
+                <?= $this->getReCaptchaDivTag() ?>
+
+                <p class="mb-0"><input type="submit" value="Sign Up"></p>
+            </form>
+
+            <?php if ($errors): ?>
+                <ol class="errors">
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $this->escape($error); ?></li>
+                    <?php endforeach ?>
+                </ol>
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="column">
+        <div class="panel">
+            <h2>Already registered?</h2>
+
+            <p><a href="/login">Click here to login.</a></p>
+        </div>
+    </div>
+</div>

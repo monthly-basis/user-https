@@ -1,0 +1,17 @@
+<?php
+$this->layout()->setVariables([
+    'htmlHeadAppend' => $this->getReCaptchaScriptTag(),
+    'htmlHeadTitle'  => 'Reset Password',
+    'useContainer'   => false,
+]);
+$this->getShowAdsService()->setShowAds(false);
+?>
+<div class="columns one-column">
+    <div class="column">
+        <div class="panel">
+            <h1>Reset Password</h1>
+
+            <p>A link to reset your password has been emailed to <b><?= $this->escape($email); ?></b></p>
+        </div>
+    </div>
+</div>

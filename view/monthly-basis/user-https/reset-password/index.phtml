@@ -1,0 +1,41 @@
+<?php
+$this->layout()->setVariables([
+    'htmlHeadAppend' => $this->getReCaptchaScriptTag(),
+    'htmlHeadTitle'  => 'Reset Password',
+    'useContainer'   => false,
+]);
+$this->getShowAdsService()->setShowAds(false);
+?>
+<div class="columns two-columns">
+    <div class="column">
+        <div class="panel">
+            <h1>Reset Password</h1>
+
+            <form action="/reset-password" method="post">
+                <p>
+                    Email<br>
+                    <input type="text" name="email">
+                </p>
+
+                <?= $this->getReCaptchaDivTag() ?>
+
+                <p class="mb-0"><input type="submit" value="Submit"></p>
+            </form>
+
+            <?php if ($errors): ?>
+                <ol class="errors">
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $this->escape($error); ?></li>
+                    <?php endforeach ?>
+                </ol>
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="column">
+        <div class="panel">
+            <h2>Not yet registered?</h2>
+
+            <p><a href="/sign-up">Click here to sign up.</a></p>
+        </div>
+    </div>
+</div>

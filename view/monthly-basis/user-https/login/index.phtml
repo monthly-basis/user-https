@@ -1,0 +1,54 @@
+<?php
+$this->getShowAdsService()->setShowAds(false);
+$this->layout()->setVariables([
+    'htmlHeadTitle' => 'Login',
+]);
+$this->layout()->setVariable(
+    'htmlHeadAppend',
+    $this->getReCaptchaScriptTag()
+);
+$message  = $this->flash()->get('message');
+$error    = $this->flash()->get('error');
+$redirect = $this->flash()->get('redirect');
+?>
+<div class="columns one-column">
+    <div class="column">
+        <div class="panel">
+            <h1>Login</h1>
+
+            <?php if ($message): ?>
+                <p><?= $this->escape($message); ?></p>
+            <?php endif ?>
+
+            <form action="/login" method="post">
+                <p>
+                    Username<br>
+                    <input type="text" name="username">
+                </p>
+
+                <p>
+                    Password<br>
+                    <input type="password" name="password">
+                </p>
+
+                <?= $this->getReCaptchaDivTag(); ?>
+
+                <p>
+                    <label><input type="checkbox" name="keep"> Keep me logged in</label>
+                </p>
+
+                <p class="mb-0"><input type="submit" value="Login"></p>
+
+                <?php if ($redirect): ?>
+                    <input type="hidden" name="redirect" value="<?= $this->escape($redirect); ?>">
+                <?php endif ?>
+            </form>
+
+            <?php if ($error): ?>
+                <p class="c-r"><?= $this->escape($error); ?></p>
+            <?php endif ?>
+
+            <p><a href="/reset-password">Forgot your password?</a>
+        </div>
+    </div>
+</div>
