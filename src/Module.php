@@ -136,7 +136,7 @@ class Module
             ],
             'view_manager' => [
                 'template_path_stack' => [
-                    'monthly-basis/user' => __DIR__ . '/../view',
+                    'monthly-basis/user-https' => __DIR__ . '/../view',
                 ],
             ],
         ];

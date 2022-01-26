@@ -59,7 +59,7 @@ class ChangePassword extends AbstractActionController
         );
 
         return (new ViewModel())
-            ->setTemplate('monthly-basis/user/account/change-password/success')
+            ->setTemplate('monthly-basis/user-https/account/change-password/success')
             ;
     }
 }
