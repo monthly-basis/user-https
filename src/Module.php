@@ -200,7 +200,7 @@ class Module
                         $sm->get(UserService\Password\Reset\Expired::class),
                         $sm->get(UserTable\ResetPassword::class),
                         $sm->get(UserTable\ResetPasswordAccessLog::class),
-                        $sm->get(UserTable\User\PasswordHash::class),
+                        $sm->get(UserTable\User\UserId::class),
                     );
                 },
             ],

@@ -34,8 +34,8 @@ class CodeTest extends TestCase
         $this->resetPasswordAccessLogTableMock = $this->createMock(
             UserTable\ResetPasswordAccessLog::class
         );
-        $this->passwordHashTableMock = $this->createMock(
-            UserTable\User\PasswordHash::class
+        $this->userIdTableMock = $this->createMock(
+            UserTable\User\UserId::class
         );
 
         $this->codeController = new UserController\ResetPassword\UserId\Code(
@@ -46,7 +46,7 @@ class CodeTest extends TestCase
             $this->expiredServiceMock,
             $this->resetPasswordTableMock,
             $this->resetPasswordAccessLogTableMock,
-            $this->passwordHashTableMock,
+            $this->userIdTableMock,
         );
     }
 

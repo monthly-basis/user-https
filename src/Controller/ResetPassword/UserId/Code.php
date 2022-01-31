@@ -22,7 +22,7 @@ class Code extends AbstractActionController
         UserService\Password\Reset\Expired $expiredService,
         UserTable\ResetPassword $resetPasswordTable,
         UserTable\ResetPasswordAccessLog $resetPasswordAccessLogTable,
-        UserTable\User\PasswordHash $passwordHashTable
+        UserTable\User\UserId $userIdTable
     ) {
         $this->flashService                = $flashService;
         $this->fromUserIdAndCodeFactory    = $fromUserIdAndCodeFactory;
@@ -31,7 +31,7 @@ class Code extends AbstractActionController
         $this->expiredService              = $expiredService;
         $this->resetPasswordTable          = $resetPasswordTable;
         $this->resetPasswordAccessLogTable = $resetPasswordAccessLogTable;
-        $this->passwordHashTable           = $passwordHashTable;
+        $this->userIdTable                 = $userIdTable;
     }
 
     public function onDispatch(MvcEvent $mvcEvent)
@@ -123,7 +123,7 @@ class Code extends AbstractActionController
             $this->code,
         );
 
-        $this->passwordHashTable->updateWhereUserId(
+        $this->userIdTable->updateSetPasswordHashWhereUserId(
             password_hash($_POST['new_password'], PASSWORD_DEFAULT),
             $this->userId
         );
