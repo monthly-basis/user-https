@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54c614ab5860a2668b00e7dc452ebf9f",
+    "content-hash": "92b9878e191192112ec77e8b90231fe2",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2242,16 +2242,16 @@
         },
         {
             "name": "monthly-basis/user",
-            "version": "v2.12.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/monthly-basis/user.git",
-                "reference": "8d5c91eba73765cf1f53666c9892418c246aaa3e"
+                "reference": "18c27539a0706794a08089ced35953f549495b91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/monthly-basis/user/zipball/8d5c91eba73765cf1f53666c9892418c246aaa3e",
-                "reference": "8d5c91eba73765cf1f53666c9892418c246aaa3e",
+                "url": "https://api.github.com/repos/monthly-basis/user/zipball/18c27539a0706794a08089ced35953f549495b91",
+                "reference": "18c27539a0706794a08089ced35953f549495b91",
                 "shasum": ""
             },
             "require": {
@@ -2280,9 +2280,9 @@
             ],
             "support": {
                 "issues": "https://github.com/monthly-basis/user/issues",
-                "source": "https://github.com/monthly-basis/user/tree/v2.12.0"
+                "source": "https://github.com/monthly-basis/user/tree/v3.0.0"
             },
-            "time": "2022-01-29T21:09:13+00:00"
+            "time": "2022-01-30T22:24:48+00:00"
         },
         {
             "name": "monthly-basis/website",
