@@ -5,6 +5,7 @@ return [
         'Laminas\Db',
         'Laminas\Router',
         'MonthlyBasis\Flash',
+        'MonthlyBasis\IpAddress',
         'MonthlyBasis\ReCaptcha',
         'MonthlyBasis\SimpleEmailService',
         'MonthlyBasis\StopForumSpam',
