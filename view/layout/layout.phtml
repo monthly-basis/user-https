@@ -13,14 +13,50 @@ if (empty($htmlHeadTitle)) {
         <?php if (isset($htmlHeadAppend)): ?>
             <?= $htmlHeadAppend ?>
         <?php endif ?>
+
+<style>
+body {
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: #ddd;
+    margin: 0;
+}
+header {
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+footer {
+    background-color: #fff;
+}
+h1 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 50px;
+    margin-top: -5px;
+}
+input {
+    font-size: 20px;
+    padding: 5px;
+}
+main {
+    max-width: 1610px;
+    margin: 0 auto 20px;
+}
+.panel {
+    background-color: #fff;
+    padding: 10px;
+}
+    .panel > *:last-child {
+        margin-bottom: 0;
+    }
+</style>
     </head>
     <body>
         <header>
             header
         </header>
-        <main>
-            <?= $this->content ?>
-        </main>
+        <?= $this->content ?>
         <footer>
             footer
         </footer>
