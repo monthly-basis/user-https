@@ -1,12 +1,10 @@
 <?php
 $this->getShowAdsService()->setShowAds(false);
 $this->layout()->setVariables([
-    'htmlHeadTitle' => 'Login',
+    'htmlHeadAppend' => $this->getReCaptchaScriptTag(),
+    'htmlHeadTitle'  => 'Login',
+    'useContainer'   => false,
 ]);
-$this->layout()->setVariable(
-    'htmlHeadAppend',
-    $this->getReCaptchaScriptTag()
-);
 $message  = $this->flash()->get('message');
 $error    = $this->flash()->get('error');
 $redirect = $this->flash()->get('redirect');
